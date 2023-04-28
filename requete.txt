@@ -28,3 +28,12 @@ d. Nombre de films par genre (classés dans l’ordre décroissant)
     LEFT JOIN genre_film gf ON gf.id_genre = g.id_genre
     GROUP BY g.id_genre
     ORDER BY nombre_film DESC
+
+e. Nombre de films par réalisateur (classés dans l’ordre décroissant)
+
+    SELECT p.nom AS nom_realisateur, p.prenom AS prénom_réalisateur, COUNT(f.id_film) AS nombre_film
+    FROM film f
+    INNER JOIN realisateur r ON r.id_realisateur = f.id_realisateur
+    LEFT JOIN personne p ON p.id_personne = r.id_personne
+    GROUP BY p.id_personne
+    ORDER BY nombre_film DESC
