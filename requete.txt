@@ -72,3 +72,11 @@ i. Liste des films qui ont moins de 5 ans (classés du plus récent au plus anci
     FROM film f
     WHERE YEAR(NOW()) - YEAR(f.dateSortie) <= 5
     ORDER BY date_sortie DESC;
+
+j. Nombre d’hommes et de femmes parmi les acteurs
+
+    SELECT p.sexe, COUNT(p.sexe) AS nombre
+    FROM personne p
+    INNER JOIN acteur a ON a.id_personne = p.id_personne
+    WHERE p.sexe IN ('M', 'F')
+    GROUP BY p.sexe;
