@@ -80,3 +80,12 @@ j. Nombre d’hommes et de femmes parmi les acteurs
     INNER JOIN acteur a ON a.id_personne = p.id_personne
     WHERE p.sexe IN ('M', 'F')
     GROUP BY p.sexe;
+
+k. Liste des acteurs ayant plus de 50 ans (âge révolu et non révolu)
+
+    SELECT CONCAT(p.nom, ' ', p.prenom) AS alias_acteur, DATE_FORMAT(p.dateNaissance, "%d-%m-%Y") AS date_naissance,
+        TIMESTAMPDIFF(YEAR, p.dateNaissance, CURDATE()) AS age_revolu,
+        YEAR(NOW()) - YEAR(p.dateNaissance) AS age_non_revolu
+    FROM personne p
+    JOIN acteur a ON p.id_personne = a.id_personne
+    WHERE TIMESTAMPDIFF(YEAR, p.dateNaissance, CURDATE()) >= 50;
