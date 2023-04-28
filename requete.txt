@@ -5,3 +5,10 @@ a. Informations d’un film (id_film) : titre, année, durée (au format HH:MM) 
     INNER JOIN realisateur r ON r.id_realisateur = f.id_realisateur
     INNER JOIN personne p ON p.id_personne = r.id_personne
     WHERE f.id_film =  -- id_film
+
+b. Liste des films dont la durée excède 2h15 classés par durée (du plus long au plus court)
+
+    SELECT f.titre, TIME_FORMAT(SEC_TO_TIME(f.duree * 60), '%H:%i') AS 'duree > 2h15'
+    FROM film f
+    WHERE f.duree > 135
+    ORDER BY f.duree DESC
