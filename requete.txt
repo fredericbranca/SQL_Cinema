@@ -57,3 +57,11 @@ g. Films tournés par un acteur en particulier (id_acteur) avec leur rôle et l�
     INNER JOIN role r ON r.id_role = c.id_role
     WHERE c.id_acteur =  -- id_acteur
     ORDER BY f.dateSortie DESC
+
+h. Listes des personnes qui sont à la fois acteurs et réalisateurs
+
+    SELECT p.nom, p.prenom
+    FROM personne p
+    INNER JOIN realisateur r ON r.id_personne = p.id_personne
+    INNER JOIN acteur a ON a.id_personne = p.id_personne
+    WHERE a.id_personne = r .id_personne    
