@@ -4,14 +4,14 @@ a. Informations d’un film (id_film) : titre, année, durée (au format HH:MM) 
     FROM film f
     INNER JOIN realisateur r ON r.id_realisateur = f.id_realisateur
     INNER JOIN personne p ON p.id_personne = r.id_personne
-    WHERE f.id_film =  -- id_film
+    WHERE f.id_film =  -- id_film;
 
 b. Liste des films dont la durée excède 2h15 classés par durée (du plus long au plus court)
 
     SELECT f.titre, TIME_FORMAT(SEC_TO_TIME(f.duree * 60), '%H:%i') AS 'duree > 2h15'
     FROM film f
     WHERE f.duree > 135
-    ORDER BY f.duree DESC
+    ORDER BY f.duree DESC;
 
 c. Liste des films d’un réalisateur (en précisant l’année de sortie)
 
@@ -19,7 +19,7 @@ c. Liste des films d’un réalisateur (en précisant l’année de sortie)
     FROM film f
     INNER JOIN realisateur r ON r.id_realisateur = f.id_realisateur
     INNER JOIN personne p ON p.id_personne = r.id_personne
-    WHERE p.nom = '' -- nom réalisateur
+    WHERE p.nom = '' -- nom réalisateur;
 
 d. Nombre de films par genre (classés dans l’ordre décroissant)
 
@@ -27,7 +27,7 @@ d. Nombre de films par genre (classés dans l’ordre décroissant)
     FROM genre g
     LEFT JOIN genre_film gf ON gf.id_genre = g.id_genre
     GROUP BY g.id_genre
-    ORDER BY nombre_film DESC
+    ORDER BY nombre_film DESC;
 
 e. Nombre de films par réalisateur (classés dans l’ordre décroissant)
 
@@ -36,7 +36,7 @@ e. Nombre de films par réalisateur (classés dans l’ordre décroissant)
     INNER JOIN realisateur r ON r.id_realisateur = f.id_realisateur
     LEFT JOIN personne p ON p.id_personne = r.id_personne
     GROUP BY p.id_personne
-    ORDER BY nombre_film DESC
+    ORDER BY nombre_film DESC;
 
 f. Casting d’un film en particulier (id_film) : nom, prénom des acteurs + sexe
 
@@ -45,7 +45,7 @@ f. Casting d’un film en particulier (id_film) : nom, prénom des acteurs + sex
     INNER JOIN film f ON f.id_film = c.id_film
     INNER JOIN acteur a ON a.id_acteur = c.id_acteur
     INNER JOIN personne p ON p.id_personne = a.id_personne
-    WHERE f.id_film = -- id_film
+    WHERE f.id_film = -- id_film;
 
 g. Films tournés par un acteur en particulier (id_acteur) avec leur rôle et l’année de sortie (du film le plus récent au plus ancien)
 
@@ -56,7 +56,7 @@ g. Films tournés par un acteur en particulier (id_acteur) avec leur rôle et l�
     INNER JOIN personne p ON p.id_personne = a.id_personne
     INNER JOIN role r ON r.id_role = c.id_role
     WHERE c.id_acteur =  -- id_acteur
-    ORDER BY f.dateSortie DESC
+    ORDER BY f.dateSortie DESC;
 
 h. Listes des personnes qui sont à la fois acteurs et réalisateurs
 
@@ -64,4 +64,11 @@ h. Listes des personnes qui sont à la fois acteurs et réalisateurs
     FROM personne p
     INNER JOIN realisateur r ON r.id_personne = p.id_personne
     INNER JOIN acteur a ON a.id_personne = p.id_personne
-    WHERE a.id_personne = r .id_personne    
+    WHERE a.id_personne = r .id_personne;
+
+i. Liste des films qui ont moins de 5 ans (classés du plus récent au plus ancien)
+
+    SELECT f.titre AS 'Films qui ont moins de 5 ans', YEAR(f.dateSortie) AS date_sortie
+    FROM film f
+    WHERE YEAR(NOW()) - YEAR(f.dateSortie) <= 5
+    ORDER BY date_sortie DESC;
