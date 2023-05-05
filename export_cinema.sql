@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `acteur` (
   CONSTRAINT `acteur_ibfk_1` FOREIGN KEY (`id_personne`) REFERENCES `personne` (`id_personne`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Listage des données de la table cinema.acteur : ~21 rows (environ)
+-- Listage des données de la table cinema.acteur : ~22 rows (environ)
 INSERT INTO `acteur` (`id_acteur`, `id_personne`) VALUES
 	(1, 2),
 	(2, 3),
@@ -50,7 +50,8 @@ INSERT INTO `acteur` (`id_acteur`, `id_personne`) VALUES
 	(18, 24),
 	(19, 25),
 	(20, 27),
-	(21, 28);
+	(21, 28),
+	(22, 29);
 
 -- Listage de la structure de table cinema. casting
 CREATE TABLE IF NOT EXISTS `casting` (
@@ -87,7 +88,8 @@ INSERT INTO `casting` (`id_film`, `id_acteur`, `id_role`) VALUES
 	(7, 18, 18),
 	(8, 19, 19),
 	(9, 20, 20),
-	(1, 21, 21);
+	(1, 21, 21),
+	(3, 22, 22);
 
 -- Listage de la structure de table cinema. film
 CREATE TABLE IF NOT EXISTS `film` (
@@ -107,14 +109,14 @@ CREATE TABLE IF NOT EXISTS `film` (
 -- Listage des données de la table cinema.film : ~9 rows (environ)
 INSERT INTO `film` (`id_film`, `titre`, `dateSortie`, `duree`, `synopsis`, `note`, `affiche`, `id_realisateur`) VALUES
 	(1, 'Super Mario Bros, le film', '2023-04-05', 92, 'Alors qu’ils tentent de réparer une canalisation souterraine, Mario et son frère Luigi, tous deux plombiers, se retrouvent plongés dans un nouvel univers féerique à travers un mystérieux conduit. Mais lorsque les deux frères sont séparés, Mario s’engage dans une aventure trépidante pour retrouver Luigi.Dans sa quête, il peut compter sur l’aide du champignon Toad, habitant du Royaume Champignon, et les conseils avisés, en matière de techniques de combat, de la Princesse Peach, guerrière déterminée à la tête du Royaume. C’est ainsi que Mario réussit à mobiliser ses propres forces pour aller au bout de sa mission.', 4, 'Super_Mario_Bros_Film.jpg', 1),
-	(2, 'A vol d\'oiseaux', '2023-04-05', 57, 'À Vol d’oiseaux rassemble trois courts métrages d’animation délicats, sensibles. Un pur moment de bonheur, aérien, à la fin duquel on se sent pousser des ailes ! Un programme comme une parenthèse de douceur, où les adultes retrouvent leur âme d’enfant, les plus jeunes grandissent dans l’espoir d’une vie bienveillante, où chacun est incité à sortir de sa coquille pour voler de ses propres ailes. Programme :- Le Tout petit voyage de Emily Worms :Jean est témoin d’une chose extraordinaire : Titi, sa perruche, peut ouvrir la porte de sa cage ! Pourtant l’oiseau ne part pas. En essayant de comprendre pourquoi, Jean se retrouve embarqué dans un monde magique. Titi va pouvoir montrer ses failles et peurs, et Jean l’aidera à les surmonter. En traversant d\'étonnants paysages, ils enrichiront leur amitié et apprendront que dire au revoir, ce n’est pas dire adieu.- L\'Air de rien de Gabriel Hénot Lefèvre :Dans un sanatorium en bord de mer, un vieil homme voit sa vie bousculée par l’arrivée d’une mouette qu’il va doucement apprivoiser. Le jour où celle-ci est blessée, l’homme va prendre soin d’elle et retrouver, pour un instant, son âme d’enfant.- Drôles d\'oiseaux de Charlie Belin :Ellie entre en sixième à Saumur. Timide et passionnée par la nature, elle passe son temps plongée dans des livres, en particulier d’ornithologie. Elle intrigue Anna, la documentaliste du collège, une femme mystérieuse avec qui elle tisse une relation pleine de malice. Le jour où Ellie doit absolument lui rendre un livre, la porte du CDI est fermée. Elle décide alors de le ramener directement chez Anna qui vit sur une île sur la Loire, à quelques kilomètres du collège. Une île pleine d’oiseaux…', 3, 'A_vol_d_oiseaux.jpg', 2),
+	(2, 'À vol d\'oiseaux', '2023-04-05', 57, 'À Vol d’oiseaux rassemble trois courts métrages d’animation délicats, sensibles. Un pur moment de bonheur, aérien, à la fin duquel on se sent pousser des ailes ! Un programme comme une parenthèse de douceur, où les adultes retrouvent leur âme d’enfant, les plus jeunes grandissent dans l’espoir d’une vie bienveillante, où chacun est incité à sortir de sa coquille pour voler de ses propres ailes. ', 3, 'A_vol_d_oiseaux.jpg', 2),
 	(3, 'Suzume no Tojimari', '2023-04-12', 122, 'Dans une petite ville paisible de Kyushu, une jeune fille de 17 ans, Suzume, rencontre un homme qui dit voyager à la recherche d’une porte. Décidant de le suivre dans les montagnes, elle découvre une porte délabrée trônant au milieu des ruines, seul vestige ayant survécu au passage du temps. Cédant à une inexplicable impulsion, Suzume tourne la poignée, et d’autres portes s’ouvrent alors aux quatre coins du Japon, laissant passer toutes les catastrophes qu’elles renfermaient. L’homme est formel : toute porte ouverte doit être refermée. Suzume s’est égarée où se trouvent les étoiles, le crépuscule et l’aube, une voûte céleste où tous les temps se confondent. Guidée par des portes nimbées de mystère, elle entame un périple afin de toutes les refermer.', 4, 'Suzume.jpg', 3),
 	(4, 'Dragons : L\'Honneur des voleurs', '2023-04-12', 134, 'Un voleur beau gosse et une bande d\'aventuriers improbables entreprennent un casse épique pour récupérer une relique perdue. Les choses tournent mal lorsqu\'ils s\'attirent les foudres des mauvaises personnes. Donjons & Dragons : L\'honneur des voleurs transpose sur grand écran l\'univers riche et l\'esprit ludique du légendaire jeu de rôle à travers une aventure hilarante et pleine d\'action.', 4, 'Donjour_et_Dragon.jpg', 4),
 	(5, 'Le Royaume de Naya', '2023-03-29', 99, 'Par-delà les hautes Montagnes Noires se cache un royaume peuplé de créatures fantastiques. Depuis des siècles, elles protègent du monde des hommes une source de vie éternelle aux pouvoirs infinis. Jusqu’au jour où Naya, la nouvelle élue de cette forêt enchantée, rencontre Lucas, un jeune humain égaré dans les montagnes. À l’encontre des règles établies depuis des millénaires, ils vont se revoir, sans prendre garde aux conséquences qui s’abattront sur le royaume. L’aventure ne fait que commencer.', 3, 'Royaume_de_Naya.jpg', 5),
 	(6, 'John Wick : Chapitre 4', '2023-03-22', 170, 'John Wick découvre un moyen de vaincre l’organisation criminelle connue sous le nom de la Grande Table. Mais avant de gagner sa liberté, Il doit affronter un nouvel ennemi qui a tissé de puissantes alliances à travers le monde et qui transforme les vieux amis de John en ennemis.', 4, 'John_Wick_4.jpg', 6),
 	(7, 'Scream VI', '2023-03-08', 122, 'Après avoir frappé à trois reprises à Woodsboro, après avoir terrorisé le campus de Windsor et les studios d’Hollywood, Ghostface a décidé de sévir dans Big Apple, mais dans une ville aussi grande que New-York personne ne vous entendra crier…', 3, 'Scream_6.jpg', 7),
 	(8, 'Creed III', '2023-03-01', 117, 'Idole de la boxe et entouré de sa famille, Adonis Creed n’a plus rien à prouver. Jusqu’au jour où son ami d’enfance, Damian, prodige de la boxe lui aussi, refait surface. A peine sorti de prison, Damian est prêt à tout pour monter sur le ring et reprendre ses droits. Adonis joue alors sa survie, face à un adversaire déterminé à l’anéantir.', 4, 'Creed_3.jpg', 8),
-	(9, 'Les Gardiennes de la planète', '2023-02-22', 82, 'Une baleine à bosse s\'est échouée sur un rivage isolé. Alors qu\'un groupe d\'hommes et de femmes organise son sauvetage, nous découvrons l\'histoire extraordinaire des cétacés, citoyens des océans du monde, essentiels à l’écosystème de notre planète depuis plus de 50 millions d’années.', 4, 'Les_Gardiennes_de_la_planete.jgp', 9);
+	(9, 'Les Gardiennes de la planète', '2023-02-22', 82, 'Une baleine à bosse s\'est échouée sur un rivage isolé. Alors qu\'un groupe d\'hommes et de femmes organise son sauvetage, nous découvrons l\'histoire extraordinaire des cétacés, citoyens des océans du monde, essentiels à l’écosystème de notre planète depuis plus de 50 millions d’années.', 4, 'Les_Gardiennes_de_la_planete.jpg', 9);
 
 -- Listage de la structure de table cinema. genre
 CREATE TABLE IF NOT EXISTS `genre` (
@@ -123,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `genre` (
   PRIMARY KEY (`id_genre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Listage des données de la table cinema.genre : ~0 rows (environ)
+-- Listage des données de la table cinema.genre : ~11 rows (environ)
 INSERT INTO `genre` (`id_genre`, `nom`) VALUES
 	(1, 'Action'),
 	(2, 'Aventure'),
@@ -147,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `genre_film` (
   CONSTRAINT `genre_film_ibfk_2` FOREIGN KEY (`id_genre`) REFERENCES `genre` (`id_genre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Listage des données de la table cinema.genre_film : ~0 rows (environ)
+-- Listage des données de la table cinema.genre_film : ~21 rows (environ)
 INSERT INTO `genre_film` (`id_film`, `id_genre`) VALUES
 	(1, 1),
 	(6, 1),
@@ -177,11 +179,11 @@ CREATE TABLE IF NOT EXISTS `personne` (
   `nom` varchar(80) NOT NULL,
   `prenom` varchar(50) NOT NULL,
   `sexe` varchar(10) NOT NULL,
-  `dateNaissance` date NOT NULL,
+  `dateNaissance` date DEFAULT NULL,
   PRIMARY KEY (`id_personne`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Listage des données de la table cinema.personne : ~28 rows (environ)
+-- Listage des données de la table cinema.personne : ~29 rows (environ)
 INSERT INTO `personne` (`id_personne`, `nom`, `prenom`, `sexe`, `dateNaissance`) VALUES
 	(1, 'Horvath', 'Aaron ', 'M', '1980-08-19'),
 	(2, 'Pratt', 'Chris', 'M', '1979-06-21'),
@@ -210,7 +212,8 @@ INSERT INTO `personne` (`id_personne`, `nom`, `prenom`, `sexe`, `dateNaissance`)
 	(25, 'B. Jordan', 'Michael', 'M', '1987-02-09'),
 	(26, 'Lièvre', 'Jean-Albert', 'M', '1961-08-15'),
 	(27, 'Dujardin', 'Jean', 'M', '1972-06-19'),
-	(28, 'Black', 'Jack', 'M', '1969-08-28');
+	(28, 'Black', 'Jack', 'M', '1969-08-28'),
+	(29, 'Yamane', 'Ann', 'F', '1997-02-03');
 
 -- Listage de la structure de table cinema. realisateur
 CREATE TABLE IF NOT EXISTS `realisateur` (
@@ -221,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `realisateur` (
   CONSTRAINT `realisateur_ibfk_1` FOREIGN KEY (`id_personne`) REFERENCES `personne` (`id_personne`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Listage des données de la table cinema.realisateur : ~0 rows (environ)
+-- Listage des données de la table cinema.realisateur : ~9 rows (environ)
 INSERT INTO `realisateur` (`id_realisateur`, `id_personne`) VALUES
 	(1, 1),
 	(2, 5),
@@ -240,7 +243,7 @@ CREATE TABLE IF NOT EXISTS `role` (
   PRIMARY KEY (`id_role`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Listage des données de la table cinema.role : ~0 rows (environ)
+-- Listage des données de la table cinema.role : ~22 rows (environ)
 INSERT INTO `role` (`id_role`, `role`) VALUES
 	(1, 'Mario'),
 	(2, 'Princesse Peach'),
@@ -262,7 +265,8 @@ INSERT INTO `role` (`id_role`, `role`) VALUES
 	(18, 'Ghostface'),
 	(19, 'Adonis Johnson Creed'),
 	(20, 'Voix Off'),
-	(21, 'Bowser');
+	(21, 'Bowser'),
+	(22, 'Daijin');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
